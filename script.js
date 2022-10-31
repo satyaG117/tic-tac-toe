@@ -79,12 +79,6 @@ const setGameOver = (message) => {
 }
 
 const checkResults = () => {
-    console.log(gameStatus);
-    //if grid full then tie
-    if (!gameStatus.freeSpace) {
-        setGameOver('Tie');
-        return;
-    }
     for (let i = 0; i < MATCHES.length; i++) {
         let i0 = MATCHES[i][0]
         let i1 = MATCHES[i][1]
@@ -97,8 +91,11 @@ const checkResults = () => {
                 return;
             }
         }
-
-
+    }
+    //if grid full then tie
+    if (!gameStatus.freeSpace) {
+        setGameOver('Tie');
+        return;
     }
 }
 
